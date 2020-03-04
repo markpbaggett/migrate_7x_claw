@@ -16,7 +16,7 @@ label: 'Islandora Subject'
 source:
   plugin: islandora
   solr_base_url: 'http://33.33.33.1:8181/solr'
-  q: 'fedora_datastreams_ms:MODS'
+  q: 'fedora_datastreams_ms:MODS AND RELS_EXT_isMemberOfCollection_uri_ms:"info:fedora/islandora:mark"'
   row_type: MODS
   fedora_base_url: 'http://33.33.33.1:8181/fedora'
   data_fetcher_plugin: http
@@ -25,7 +25,9 @@ source:
     username: fedoraAdmin
     password: fedoraAdmin
   data_parser_plugin: authenticated_xml 
-  item_selector: '/mods:mods/mods:subject/mods:temporal[node()] | /mods:mods/mods:subject/mods:topic[node()]'
+  namespaces:
+    mark: 'http://www.loc.gov/mods/v3'
+  item_selector: '/mark:mods/mark:subject/mark:temporal[node()] | /mark:mods/mark:subject/mark:topic[node()]'
   constants:
     creator_uid: 1
   fields:
