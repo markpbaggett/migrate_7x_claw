@@ -29,7 +29,7 @@ source:
   item_selector: '/foxml:digitalObject'
   constants:
     fedora_base_url: 'http://33.33.33.1:8181/fedora'
-    destination_directory: 'fedora://'
+    destination_directory: 'fedora://test_migration'
     extension: jpg
     objects_string: objects
     datastreams_string: datastreams
